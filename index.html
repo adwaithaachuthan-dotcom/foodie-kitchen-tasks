@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Kitchen Tasks</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff7f0;
+            margin: 0;
+            padding: 30px 15px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        h1 {
+            color: #f06436;
+        }
+
+        input {
+            padding: 12px;
+            width: 65%;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+        }
+
+        button {
+            padding: 12px;
+            background: #f06436;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        li {
+            padding: 12px 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .back {
+            color: #f06436;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🍔 Foodie Kitchen Tasks</h1>
+        <p>Add and manage tasks using Flask and MongoDB.</p>
+
+        <form action="/add" method="POST">
+            <input type="text" name="task" placeholder="Enter a kitchen task..." required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>📋 My Tasks</h2>
+
+        <ul>
+            {% for todo in todos %}
+            <li>{{ todo.task }}</li>
+            {% else %}
+            <li>No tasks yet. Add your first task!</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
